@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.awt.BorderLayout;
 
-public class  LoginPage extends JFrame  {
+public class  LoginPage extends JFrame implements ActionListener {
     private static JLabel bankname,bankAddress,alertMag;
     private JLabel accountNo,password;
     private JTextField accountNoInput;
@@ -36,6 +36,15 @@ public class  LoginPage extends JFrame  {
         accountNo.setFont(new Font("Arial", Font.BOLD, 19));
         accountNo.setBounds(495, 200, 200, 30);
         add(accountNo);
+
+        //Aleart message
+        alertMag=new JLabel("");
+        alertMag.setFont(new Font("Monotype Corsiva", Font.ITALIC, 16));
+        alertMag.setForeground(Color.RED);
+        alertMag.setBounds(650, 250, 300, 30);
+        add(alertMag);
+
+
 
         //Input of account number
         accountNoInput=new JTextField(16);
@@ -97,12 +106,32 @@ public class  LoginPage extends JFrame  {
 
 
     }
-//    @Override
-//    public void actionPerformed(ActionEvent e){
-//            if(e.getSource()==LogIn) {
-//                String accountNum=
-//            }
-//    }
+         @Override
+        public void actionPerformed(ActionEvent e){
+             try {
+                 if (e.getSource() == LogIn) {
+                      String accountNum=accountNoInput.getText();
+                      String password = passwordInput.getText();
+
+                if(accountNum.isBlank()|| password.isBlank()){
+                        alertMag.setText("Fill up the container");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null,"Invalid Account Number or Pin Number!");
+                }
+
+
+            } else if (e.getSource()==signUp) {
+                     new SignUp();
+                    setVisible(false);
+                 }
+
+             }
+        catch (Exception ex){
+            ex.printStackTrace();
+
+        }
+    }
 
 
 

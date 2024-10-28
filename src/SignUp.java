@@ -77,7 +77,7 @@ public class SignUp extends JFrame  {
         //Mother's InputBox
         MothNameInput =new JTextField(35);
         MothNameInput.setForeground(Color.BLACK);
-        MothNameInput.setFont(new Font("Arial",Font.BOLD,2));
+        MothNameInput.setFont(new Font("Arial",Font.BOLD,16));
         MothNameInput.setBounds(170,260,300,30);
         add(MothNameInput);
 
